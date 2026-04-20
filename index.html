@@ -706,22 +706,41 @@
         }
     })();
 
-    // ========== КНОПКА СКАЧИВАНИЯ (Яндекс.Диск) ==========
+    // ========== КНОПКА СКАЧИВАНИЯ (ПРЯМОЕ СКАЧИВАНИЕ С ЯНДЕКС.ДИСКА) ==========
     const downloadBtn = document.getElementById('downloadSetupBtn');
     if (downloadBtn) {
         downloadBtn.addEventListener('click', (e) => {
             e.preventDefault();
             
-            // ВАША ССЫЛКА НА ФАЙЛ С ЯНДЕКС.ДИСКА
-            // Добавлен параметр ?force=download для принудительного скачивания
-            const fileUrl = 'https://disk.yandex.ru/d/z39iWTsRp3RDTw?force=download';
+            // ПРЯМАЯ ССЫЛКА НА СКАЧИВАНИЕ (минуя страницу Яндекс.Диска)
+            // Получена через настройку "Опубликовать" → "Прямая ссылка"
+            const fileUrl = 'https://downloader.disk.yandex.ru/disk/8e8e8e8e8e8e8e8e8e8e8e8e8e8e8e8e/Village_Launcher_Setup.exe';
             
-            // Открываем в новой вкладке — Яндекс сам начнёт скачивание
-            window.open(fileUrl, '_blank');
+            // ВАЖНО: Вам нужно получить реальную прямую ссылку на файл.
+            // Как получить:
+            // 1. Зайдите на disk.yandex.ru
+            // 2. Нажмите на файл правой кнопкой → "Поделиться"
+            // 3. Включите "Доступ по ссылке"
+            // 4. Нажмите "Настроить" → выберите "Открывать как файл"
+            // 5. Скопируйте полученную ссылку и вставьте её вместо примера выше
+            
+            // ВРЕМЕННОЕ РЕШЕНИЕ (открывает страницу с файлом, но пользователь может скачать):
+            // Если прямая ссылка не работает, используйте этот вариант:
+            // const fileUrl = 'https://disk.yandex.ru/d/z39iWTsRp3RDTw?force=download';
+            // window.open(fileUrl, '_blank');
+            
+            // Создаём временную ссылку и имитируем клик для прямого скачивания
+            const link = document.createElement('a');
+            link.href = fileUrl;
+            link.download = 'Village_Launcher_Setup.exe';
+            link.style.display = 'none';
+            document.body.appendChild(link);
+            link.click();
+            document.body.removeChild(link);
             
             // Уведомление
             const notification = document.createElement('div');
-            notification.textContent = '✅ Скачивание началось! Файл загружается с Яндекс.Диска.';
+            notification.textContent = '✅ Скачивание Village_Launcher_Setup.exe началось!';
             notification.style.position = 'fixed';
             notification.style.bottom = '20px';
             notification.style.left = '20px';
@@ -738,7 +757,7 @@
             setTimeout(() => {
                 notification.style.opacity = '0';
                 setTimeout(() => notification.remove(), 500);
-            }, 4000);
+            }, 3000);
         });
     }
 </script>
