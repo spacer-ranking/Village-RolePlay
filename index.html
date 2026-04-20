@@ -706,40 +706,17 @@
         }
     })();
 
-    // ========== КНОПКА СКАЧИВАНИЯ (РАБОТАЕТ 100%) ==========
+    // ========== КНОПКА СКАЧИВАНИЯ (БЕЗ УВЕДОМЛЕНИЯ) ==========
     const downloadBtn = document.getElementById('downloadSetupBtn');
     if (downloadBtn) {
         downloadBtn.addEventListener('click', (e) => {
             e.preventDefault();
             
-            // ВАША ССЫЛКА НА ФАЙЛ С ЯНДЕКС.ДИСКА
-            // Добавляем параметр force=download для принудительного скачивания
+            // Ссылка на файл с Яндекс.Диска с принудительным скачиванием
             const fileUrl = 'https://disk.yandex.ru/d/z39iWTsRp3RDTw?force=download';
             
-            // Открываем в новой вкладке с параметром force=download
-            // Яндекс.Диск сам начнёт скачивание, а не покажет страницу
+            // Просто открываем ссылку в новой вкладке
             window.open(fileUrl, '_blank');
-            
-            // Уведомление
-            const notification = document.createElement('div');
-            notification.textContent = '✅ Скачивание Village_Launcher_Setup.exe началось! Файл загружается с Яндекс.Диска.';
-            notification.style.position = 'fixed';
-            notification.style.bottom = '20px';
-            notification.style.left = '20px';
-            notification.style.right = '20px';
-            notification.style.backgroundColor = 'transparent';
-            notification.style.color = '#88ff88';
-            notification.style.padding = '0';
-            notification.style.fontSize = '0.9rem';
-            notification.style.zIndex = '9999';
-            notification.style.fontWeight = '500';
-            notification.style.textAlign = 'center';
-            notification.style.textShadow = '0 0 4px rgba(0,0,0,0.5)';
-            document.body.appendChild(notification);
-            setTimeout(() => {
-                notification.style.opacity = '0';
-                setTimeout(() => notification.remove(), 500);
-            }, 4000);
         });
     }
 </script>
