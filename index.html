@@ -573,7 +573,7 @@
                 <div class="networks__block-bottom">
                     <p class="networks__heading">ВКонтакте</p>
                     <p class="networks__text">Новости, конкурсы, общение с сообществом</p>
-                    <a class="networks__btn" href="https://vk.ru/club237286280" target="_blank">Присоединиться</a>
+                    <a class="networks__btn" href="https://vk.com/villageroleplay" target="_blank">Присоединиться</a>
                 </div>
             </div>
             <div class="networks__block">
@@ -581,7 +581,7 @@
                 <div class="networks__block-bottom">
                     <p class="networks__heading">Discord</p>
                     <p class="networks__text">Голосовое общение, ивенты, помощь</p>
-                    <a class="networks__btn" href="https://vk.ru/club237286280" target="_blank">Присоединиться</a>
+                    <a class="networks__btn" href="https://discord.gg/villagerp" target="_blank">Присоединиться</a>
                 </div>
             </div>
         </div>
@@ -598,7 +598,7 @@
                 </div>
                 <div class="footer__nav">
                     <div class="footer__nav-col"><p>Навигация</p><a href="#main-section">Главная</a><a href="#networks">Соцсети</a></div>
-                    <div class="footer__nav-col"><p>Сообщество</p><a href="https://vk.ru/club237286280">Discord</a><a href="https://vk.ru/club237286280">VK</a></div>
+                    <div class="footer__nav-col"><p>Сообщество</p><a href="https://discord.gg/villagerp">Discord</a><a href="https://vk.com/villageroleplay">VK</a></div>
                 </div>
             </div>
         </div>
@@ -707,28 +707,22 @@
         }
     })();
 
-    // ---------- КНОПКА СКАЧИВАНИЯ (ПРЯМО ИЗ ПАПКИ Village_RP_Setup) ----------
+    // ---------- КНОПКА СКАЧИВАНИЯ (GitHub RAW) ----------
     const downloadBtn = document.getElementById('downloadSetupBtn');
     if (downloadBtn) {
         downloadBtn.addEventListener('click', (e) => {
             e.preventDefault();
             
-            // СКАЧИВАНИЕ ПРЯМО ИЗ ПАПКИ Village_RP_Setup (как в прошлый раз)
-            // Файл должен лежать по пути: Village_RP_Setup/Village_Launcher_Setup.exe
-            const fileUrl = 'Village_RP_Setup/Village_Launcher_Setup.exe';
+            // ПРАВИЛЬНАЯ RAW-ССЫЛКА НА ФАЙЛ ИЗ ПАПКИ Village_RP_Setup
+            // Ваш репозиторий: spacer-r/Village-RolePlay
+            const fileUrl = 'https://github.com/spacer-r/Village-RolePlay/raw/main/Village_RP_Setup/Village_Launcher_Setup.exe';
             
-            // Простое скачивание через создание ссылки
-            const link = document.createElement('a');
-            link.href = fileUrl;
-            link.download = 'Village_Launcher_Setup.exe';
-            link.style.display = 'none';
-            document.body.appendChild(link);
-            link.click();
-            document.body.removeChild(link);
+            // Открываем в новом окне для скачивания
+            window.open(fileUrl, '_blank');
             
             // Уведомление только текстом
             const notification = document.createElement('div');
-            notification.textContent = 'Скачивание Village_Launcher_Setup.exe начато!';
+            notification.textContent = 'Скачивание началось! Файл откроется в новой вкладке.';
             notification.style.position = 'fixed';
             notification.style.bottom = '20px';
             notification.style.left = '20px';
@@ -745,7 +739,7 @@
             setTimeout(() => {
                 notification.style.opacity = '0';
                 setTimeout(() => notification.remove(), 500);
-            }, 3000);
+            }, 4000);
         });
     }
 </script>
