@@ -239,7 +239,6 @@
             flex-wrap: wrap;
             margin: 20px 0 30px;
         }
-        /* ========= КАРУСЕЛЬ ========= */
         .slider {
             position: relative;
             width: 100%;
@@ -608,7 +607,7 @@
 
 <script>
     (function() {
-        // ---------- КАРУСЕЛЬ ----------
+        // КАРУСЕЛЬ
         const sliderTrack = document.getElementById('sliderItems');
         const slides = document.querySelectorAll('#sliderItems .slider__item');
         const indicatorsContainer = document.getElementById('sliderIndicators');
@@ -707,23 +706,22 @@
         }
     })();
 
-    // ---------- КНОПКА СКАЧИВАНИЯ (РАБОЧАЯ ССЫЛКА GitHub Pages) ----------
+    // ========== КНОПКА СКАЧИВАНИЯ (Яндекс.Диск) ==========
     const downloadBtn = document.getElementById('downloadSetupBtn');
     if (downloadBtn) {
         downloadBtn.addEventListener('click', (e) => {
             e.preventDefault();
             
-            // ВАШ АДРЕС НА GitHub Pages: spacer-ranking.github.io/Village-RolePlay/
-            // Файл лежит в папке Village_RP_Setup
-            // Правильная рабочая ссылка:
-            const fileUrl = 'https://spacer-ranking.github.io/Village-RolePlay/Village_RP_Setup/Village_Launcher_Setup.exe';
+            // ВАША ССЫЛКА НА ФАЙЛ С ЯНДЕКС.ДИСКА
+            // Добавлен параметр ?force=download для принудительного скачивания
+            const fileUrl = 'https://disk.yandex.ru/d/z39iWTsRp3RDTw?force=download';
             
-            // Открываем в новом окне для скачивания
+            // Открываем в новой вкладке — Яндекс сам начнёт скачивание
             window.open(fileUrl, '_blank');
             
             // Уведомление
             const notification = document.createElement('div');
-            notification.textContent = 'Скачивание началось! Файл откроется в новой вкладке.';
+            notification.textContent = '✅ Скачивание началось! Файл загружается с Яндекс.Диска.';
             notification.style.position = 'fixed';
             notification.style.bottom = '20px';
             notification.style.left = '20px';
