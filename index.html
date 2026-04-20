@@ -1,0 +1,753 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+    <meta name="keywords" content="Village RolePlay, RolePlay, RP, GTA RP, лаунчер, скачать, MTA, RPG">
+    <title>Village RolePlay — официальный сайт</title>
+    <style>
+        @font-face {
+            font-family: 'Gilroy';
+            src: local("Gilroy Medium"), local("Gilroy-Medium"), url("https://fonts.gstatic.com/s/roboto/v30/KFOmCnqEu92Fr1Mu4mxP.woff2") format("woff2");
+            font-weight: 500;
+            font-style: normal;
+        }
+        @font-face {
+            font-family: 'Gilroy';
+            src: local("Gilroy Heavy"), local("Gilroy-Heavy"), url("https://fonts.gstatic.com/s/roboto/v30/KFOmCnqEu92Fr1Mu4mxP.woff2") format("woff2");
+            font-weight: 900;
+            font-style: normal;
+        }
+        * {
+            margin: 0;
+            padding: 0;
+            font-family: "Gilroy", "Segoe UI", "Poppins", sans-serif;
+            box-sizing: border-box;
+        }
+        body {
+            background: #12131C;
+            color: #f0f3fa;
+            line-height: 1.5;
+            scroll-behavior: smooth;
+        }
+        .container {
+            max-width: 1284px;
+            margin: auto;
+            padding: 0 5px;
+        }
+        .button {
+            display: inline-flex;
+            justify-content: flex-end;
+            height: 48px;
+            background: #252635;
+            align-items: center;
+            border-radius: 5px;
+            padding: 0 6px 0 32px;
+            text-decoration: none;
+            color: #fff;
+            font-weight: 500;
+            font-size: 14px;
+            cursor: pointer;
+            transition: 0.2s;
+            border: none;
+        }
+        .button::after {
+            content: '';
+            width: 36px;
+            height: 36px;
+            margin-left: 24px;
+            border-radius: 5px;
+            background-color: #3D3F53;
+            background-repeat: no-repeat;
+            background-position: 50% 50%;
+        }
+        .button:hover {
+            background-color: #FF1039;
+        }
+        .how-to__download-btn::after {
+            background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='20' height='20' viewBox='0 0 24 24' fill='white'%3E%3Cpath d='M12 16L7 11H10V4H14V11H17L12 16Z'/%3E%3C/svg%3E");
+            background-size: 20px;
+        }
+        .parallelogram {
+            display: inline-flex;
+            align-items: center;
+            height: 37px;
+            transform: skew(-10deg);
+            background: #FF1039;
+            padding: 0 20px;
+        }
+        .parallelogram p {
+            font-weight: 500;
+            font-size: 18px;
+            transform: skew(10deg);
+            color: #fff;
+        }
+        .text-shadow {
+            display: none;
+        }
+        .heading {
+            position: relative;
+        }
+        .heading p + p {
+            position: relative;
+            font-weight: 500;
+            font-size: 24px;
+            color: #fff;
+        }
+        #main-section {
+            position: relative;
+            width: 100%;
+            padding-bottom: 103px;
+            background: radial-gradient(50% 50% at 50% 50%, rgba(18, 19, 28, 0.94) 0%, rgba(18, 19, 28, 0.99) 100%);
+        }
+        #main-section::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-image: url('https://images.pexels.com/photos/323780/pexels-photo-323780.jpeg?auto=compress&cs=tinysrgb&w=1920');
+            background-size: cover;
+            background-position: center;
+            opacity: 0.15;
+            z-index: -1;
+        }
+        .header {
+            border-bottom: 1px solid #252635;
+        }
+        .header__navbar {
+            height: 113px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            position: relative;
+        }
+        .header__left-block {
+            display: flex;
+            align-items: center;
+        }
+        .header__logo img {
+            height: 50px;
+            width: auto;
+        }
+        .header__nav {
+            position: absolute;
+            left: 50%;
+            transform: translateX(-50%);
+            display: flex;
+            align-items: center;
+            gap: 40px;
+            margin: 0;
+        }
+        .header__nav-item {
+            list-style: none;
+            border-bottom: 1px solid #252635;
+            padding-bottom: 5px;
+        }
+        .header__nav-item--active {
+            border-color: #FF1039;
+        }
+        .header__nav-link {
+            text-decoration: none;
+            color: #A1A3C2;
+            font-weight: 500;
+            font-size: 16px;
+            transition: 0.2s;
+        }
+        .header__nav-link:hover, .header__nav-item--active .header__nav-link {
+            color: #fff;
+        }
+        .header__right-block {
+            display: flex;
+            align-items: center;
+            gap: 24px;
+            visibility: hidden;
+        }
+        .main {
+            display: flex;
+            justify-content: space-between;
+            margin-top: 117px;
+            flex-wrap: wrap;
+        }
+        .main__left-block {
+            flex: 1;
+        }
+        .main__heading {
+            display: flex;
+            align-items: center;
+        }
+        .main__heading-text {
+            position: relative;
+            margin-left: 32px;
+        }
+        .main__heading-text p {
+            font-weight: 900;
+            font-size: 48px;
+            color: #fff;
+            position: relative;
+            z-index: 1;
+        }
+        .main__footer-text {
+            font-weight: 500;
+            font-size: 18px;
+            color: #A1A3C2;
+            margin-top: 12px;
+        }
+        .main__right-block {
+            width: 465px;
+            max-width: 100%;
+        }
+        .how-to {
+            margin-top: 128px;
+            max-width: 717px;
+        }
+        .how-to__list-block {
+            display: flex;
+            margin-top: 30px;
+        }
+        .how-to__list-style {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            padding-right: 32px;
+        }
+        .how-to__list-point {
+            width: 11px;
+            height: 11px;
+            border-radius: 50%;
+            background: #FF1039;
+        }
+        .how-to__list-line {
+            width: 1px;
+            height: 100px;
+            background: #252635;
+        }
+        .how-to__list-item {
+            position: relative;
+            margin-bottom: 40px;
+        }
+        .how-to__list-item p {
+            font-weight: 500;
+            font-size: 18px;
+            color: #fff;
+            margin-bottom: 16px;
+        }
+        .how-to__buttons {
+            display: flex;
+            gap: 16px;
+            flex-wrap: wrap;
+            margin: 20px 0 30px;
+        }
+        /* ========= КАРУСЕЛЬ ========= */
+        .slider {
+            position: relative;
+            width: 100%;
+            border-radius: 0;
+            overflow: visible;
+            background: transparent;
+            backdrop-filter: none;
+            box-shadow: none;
+        }
+        .slider__container {
+            overflow: hidden;
+            border-radius: 0;
+        }
+        .slider__wrapper {
+            width: 100%;
+        }
+        .slider__items {
+            display: flex;
+            transition: transform 0.5s cubic-bezier(0.2, 0.9, 0.4, 1.1);
+            will-change: transform;
+        }
+        .slider__item {
+            flex: 0 0 100%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 0;
+        }
+        .slider__img {
+            width: 100%;
+            border-radius: 0;
+            overflow: hidden;
+            background: transparent;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+        .slider__img img {
+            width: 100%;
+            height: auto;
+            display: block;
+            object-fit: contain;
+            transition: transform 0.3s ease;
+            border-radius: 0;
+        }
+        .slider__img:hover img {
+            transform: scale(1.02);
+        }
+        .slider__indicators {
+            display: flex;
+            justify-content: center;
+            gap: 14px;
+            margin-top: 22px;
+            margin-bottom: 5px;
+        }
+        .slider__indicators li {
+            width: 10px;
+            height: 10px;
+            background: #4a4e6e;
+            border-radius: 50%;
+            cursor: pointer;
+            list-style: none;
+            transition: all 0.2s ease;
+        }
+        .slider__indicators li.active {
+            background: #FF1039;
+            width: 28px;
+            border-radius: 20px;
+            box-shadow: none;
+        }
+        @media (max-width: 768px) {
+            .slider__img img {
+                width: 100%;
+                height: auto;
+            }
+        }
+        #networks {
+            padding: 98px 0 126px;
+        }
+        .networks {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 60px;
+            flex-wrap: wrap;
+            margin-top: 64px;
+        }
+        .networks__block {
+            width: 340px;
+            background: #171827;
+            border-radius: 16px;
+            overflow: hidden;
+            transition: 0.2s;
+            text-align: center;
+        }
+        .networks__block:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 15px 35px rgba(0,0,0,0.4);
+        }
+        .networks__block-top {
+            height: 200px;
+            position: relative;
+            background-size: cover !important;
+            background-position: center !important;
+            background-repeat: no-repeat !important;
+        }
+        .networks__block-top--vk {
+            background: url('img/vk.png') center/cover no-repeat;
+            background-color: #2c3e66;
+        }
+        .networks__block-top--ds {
+            background: url('img/discord.png') center/cover no-repeat;
+            background-color: #5865F2;
+        }
+        .networks__block-bottom {
+            padding: 28px 20px;
+        }
+        .networks__heading {
+            font-size: 26px;
+            font-weight: 700;
+            color: #fff;
+            margin-bottom: 12px;
+        }
+        .networks__text {
+            font-size: 15px;
+            color: #A1A3C2;
+            margin-bottom: 28px;
+            line-height: 1.4;
+        }
+        .networks__btn {
+            display: inline-block;
+            padding: 12px 32px;
+            border-radius: 40px;
+            text-decoration: none;
+            color: #fff;
+            font-weight: 600;
+            transition: 0.2s;
+            background: #FF1039;
+        }
+        .networks__btn:hover {
+            background: #cc0e2e;
+            transform: scale(1.02);
+        }
+        .footer__top {
+            background: #171827;
+            padding: 60px 0;
+        }
+        .footer__inner {
+            display: flex;
+            justify-content: space-between;
+            flex-wrap: wrap;
+            gap: 40px;
+        }
+        .footer__left-block {
+            display: flex;
+            gap: 30px;
+            align-items: center;
+        }
+        .footer__logo img {
+            height: 60px;
+        }
+        .footer__left-text p:first-child {
+            font-weight: 900;
+            font-size: 24px;
+            color: #fff;
+        }
+        .footer__left-text p:last-child {
+            color: #A1A3C2;
+            max-width: 300px;
+        }
+        .footer__nav {
+            display: flex;
+            gap: 60px;
+        }
+        .footer__nav-col p {
+            font-weight: 500;
+            color: #fff;
+            margin-bottom: 16px;
+        }
+        .footer__nav-col a {
+            display: block;
+            color: #A1A3C2;
+            text-decoration: none;
+            margin-bottom: 12px;
+            font-size: 14px;
+        }
+        .footer__nav-col a:hover { color: #FF1039; }
+        .footer__bottom {
+            text-align: center;
+            padding: 24px;
+            font-size: 12px;
+            color: #5f6180;
+        }
+        @media (max-width: 768px) {
+            .header__navbar { 
+                flex-direction: column; 
+                height: auto; 
+                padding: 20px 0; 
+                gap: 15px; 
+                position: relative;
+            }
+            .header__nav {
+                position: static;
+                transform: none;
+                justify-content: center;
+                gap: 20px;
+                margin-top: 10px;
+            }
+            .header__right-block {
+                display: none;
+            }
+            .main { flex-direction: column; }
+            .main__right-block { width: 100%; margin-top: 40px; }
+            .how-to { margin-top: 60px; }
+            .networks { gap: 40px; }
+            .networks__block { width: 280px; }
+            .footer__inner { flex-direction: column; align-items: center; text-align: center; }
+            .footer__left-block { flex-direction: column; }
+            .footer__nav { flex-direction: column; gap: 30px; }
+            .main__heading-text p { font-size: 32px; }
+        }
+        @media (min-width: 1025px) {
+            .networks__block { transition: 0.2s; }
+        }
+        .link-down {
+            position: relative;
+            display: flex;
+            align-items: center;
+            margin: 40px 0;
+        }
+        .link-down__line {
+            flex: 1;
+            height: 1px;
+            background: #3D3F53;
+            opacity: 0.5;
+        }
+        .link-down__btn {
+            width: 64px;
+            height: 64px;
+            border-radius: 50%;
+            background: #12131C url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="white"><path d="M12 16L7 11H17L12 16Z"/></svg>') no-repeat center;
+            border: 1px solid #3D3F53;
+            cursor: pointer;
+            transition: 0.2s;
+        }
+        .link-down__btn:hover { background-color: #FF1039; border-color: #FF1039; }
+        ::-webkit-scrollbar { width: 2px; background: none; }
+        ::-webkit-scrollbar-thumb { background: #FF1039; }
+    </style>
+</head>
+<body>
+
+<section id="main-section">
+    <div class="container">
+        <header class="header">
+            <div class="header__navbar">
+                <div class="header__left-block">
+                    <a class="header__logo" href="#main-section">
+                        <img src="img/icon.png" alt="Village RP" onerror="this.src='https://placehold.co/60x60/FF1039/white?text=VRP'">
+                    </a>
+                </div>
+                <ul class="header__nav">
+                    <li class="header__nav-item header__nav-item--active"><a class="header__nav-link" href="#main-section">Как начать?</a></li>
+                    <li class="header__nav-item"><a class="header__nav-link" href="#networks">Соц. сети</a></li>
+                </ul>
+                <div class="header__right-block"></div>
+            </div>
+        </header>
+        <div class="main">
+            <div class="main__left-block">
+                <div class="main__heading">
+                    <div class="parallelogram"><p>2026</p></div>
+                    <div class="main__heading-text">
+                        <p>Village RolePlay</p>
+                    </div>
+                </div>
+                <p class="main__footer-text">Атмосферный RolePlay проект.</p>
+                <div class="how-to">
+                    <div class="parallelogram"><p>Как играть?</p></div>
+                    <div class="how-to__list-block">
+                        <div class="how-to__list-style">
+                            <div class="how-to__list-point"></div><div class="how-to__list-line"></div>
+                            <div class="how-to__list-point"></div><div class="how-to__list-line"></div>
+                            <div class="how-to__list-point"></div><div class="how-to__list-line"></div>
+                            <div class="how-to__list-point"></div>
+                        </div>
+                        <div class="how-to__list">
+                            <div class="how-to__list-item"><p>Скачай лаунчер Village RP</p></div>
+                            <div class="how-to__buttons">
+                                <button class="button how-to__download-btn" id="downloadSetupBtn">Скачать (setup)</button>
+                            </div>
+                            <div class="how-to__list-item"><p>Запусти установщик и следуй инструкциям</p></div>
+                            <div class="how-to__list-item"><p>Дождись установки и запусти лаунчер</p></div>
+                            <div class="how-to__list-item"><p>Играй вместе с друзьями!</p></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="main__right-block">
+                <div class="slider" id="mainSlider">
+                    <div class="slider__container">
+                        <div class="slider__wrapper">
+                            <div class="slider__items" id="sliderItems">
+                                <div class="slider__item slider__img">
+                                    <img src="img/phone.png" alt="Лаунчер Village 1" onerror="this.src='https://placehold.co/600x800/252635/white?text=phone.png'">
+                                </div>
+                                <div class="slider__item slider__img">
+                                    <img src="img/phone2.png" alt="Лаунчер Village 2" onerror="this.src='https://placehold.co/600x800/252635/white?text=phone2.png'">
+                                </div>
+                                <div class="slider__item slider__img">
+                                    <img src="img/phone3.png" alt="Лаунчер Village 3" onerror="this.src='https://placehold.co/600x800/252635/white?text=phone3.png'">
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <ol class="slider__indicators" id="sliderIndicators"></ol>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<div class="link-down"><div class="link-down__line"></div><a class="link-down__btn" href="#networks"></a></div>
+
+<section id="networks">
+    <div class="container">
+        <div class="heading"><p>Мы в соц. сетях</p></div>
+        <div class="networks">
+            <div class="networks__block">
+                <div class="networks__block-top networks__block-top--vk"></div>
+                <div class="networks__block-bottom">
+                    <p class="networks__heading">ВКонтакте</p>
+                    <p class="networks__text">Новости, конкурсы, общение с сообществом</p>
+                    <a class="networks__btn" href="https://vk.ru/club237286280" target="_blank">Присоединиться</a>
+                </div>
+            </div>
+            <div class="networks__block">
+                <div class="networks__block-top networks__block-top--ds"></div>
+                <div class="networks__block-bottom">
+                    <p class="networks__heading">Discord</p>
+                    <p class="networks__text">Голосовое общение, ивенты, помощь</p>
+                    <a class="networks__btn" href="https://vk.ru/club237286280" target="_blank">Присоединиться</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<footer class="footer">
+    <div class="footer__top">
+        <div class="container">
+            <div class="footer__inner">
+                <div class="footer__left-block">
+                    <a class="footer__logo" href="#main-section"><img src="img/icon.png" alt="logo" onerror="this.src='https://placehold.co/60x60/FF1039/white?text=V'"></a>
+                    <div class="footer__left-text"><p>Village RolePlay</p><p>Атмосферный RP проект</p></div>
+                </div>
+                <div class="footer__nav">
+                    <div class="footer__nav-col"><p>Навигация</p><a href="#main-section">Главная</a><a href="#networks">Соцсети</a></div>
+                    <div class="footer__nav-col"><p>Сообщество</p><a href="https://vk.ru/club237286280">Discord</a><a href="https://vk.ru/club237286280">VK</a></div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="footer__bottom"><div class="container"><p>© 2026 Village RolePlay. Все права защищены.</p></div></div>
+</footer>
+
+<script>
+    (function() {
+        // ---------- КАРУСЕЛЬ ----------
+        const sliderTrack = document.getElementById('sliderItems');
+        const slides = document.querySelectorAll('#sliderItems .slider__item');
+        const indicatorsContainer = document.getElementById('sliderIndicators');
+        if (sliderTrack && slides.length && indicatorsContainer) {
+            let currentIndex = 0;
+            let autoInterval = null;
+            const AUTO_DELAY = 5000;
+
+            function buildIndicators() {
+                indicatorsContainer.innerHTML = '';
+                for (let i = 0; i < slides.length; i++) {
+                    const dot = document.createElement('li');
+                    dot.setAttribute('data-slide-to', i);
+                    if (i === currentIndex) dot.classList.add('active');
+                    dot.addEventListener('click', (e) => {
+                        e.stopPropagation();
+                        stopAutoScroll();
+                        goToSlide(i);
+                        startAutoScroll();
+                    });
+                    indicatorsContainer.appendChild(dot);
+                }
+            }
+
+            function goToSlide(index) {
+                if (index < 0) index = 0;
+                if (index >= slides.length) index = slides.length - 1;
+                currentIndex = index;
+                const offset = -currentIndex * 100;
+                sliderTrack.style.transform = `translateX(${offset}%)`;
+                updateActiveIndicator();
+            }
+
+            function nextSlide() {
+                let next = currentIndex + 1;
+                if (next >= slides.length) next = 0;
+                goToSlide(next);
+            }
+
+            function prevSlide() {
+                let prev = currentIndex - 1;
+                if (prev < 0) prev = slides.length - 1;
+                goToSlide(prev);
+            }
+
+            function updateActiveIndicator() {
+                const dots = document.querySelectorAll('#sliderIndicators li');
+                dots.forEach((dot, idx) => {
+                    if (idx === currentIndex) dot.classList.add('active');
+                    else dot.classList.remove('active');
+                });
+            }
+
+            function startAutoScroll() {
+                if (autoInterval) clearInterval(autoInterval);
+                autoInterval = setInterval(nextSlide, AUTO_DELAY);
+            }
+
+            function stopAutoScroll() {
+                if (autoInterval) {
+                    clearInterval(autoInterval);
+                    autoInterval = null;
+                }
+            }
+
+            buildIndicators();
+            goToSlide(0);
+            startAutoScroll();
+
+            const sliderContainer = document.querySelector('.slider');
+            if (sliderContainer) {
+                sliderContainer.addEventListener('mouseenter', stopAutoScroll);
+                sliderContainer.addEventListener('mouseleave', startAutoScroll);
+                sliderContainer.addEventListener('touchstart', stopAutoScroll);
+                sliderContainer.addEventListener('touchend', () => {
+                    setTimeout(() => { if (!autoInterval) startAutoScroll(); }, 300);
+                });
+            }
+
+            let touchStartX = 0;
+            if (sliderContainer) {
+                sliderContainer.addEventListener('touchstart', (e) => {
+                    touchStartX = e.changedTouches[0].screenX;
+                });
+                sliderContainer.addEventListener('touchend', (e) => {
+                    const touchEndX = e.changedTouches[0].screenX;
+                    const delta = touchEndX - touchStartX;
+                    if (Math.abs(delta) > 50) {
+                        if (delta > 0) prevSlide();
+                        else nextSlide();
+                        stopAutoScroll();
+                        startAutoScroll();
+                    }
+                });
+            }
+        }
+    })();
+
+    // ---------- КНОПКА СКАЧИВАНИЯ (ПРЯМО ИЗ ПАПКИ Village_RP_Setup) ----------
+    const downloadBtn = document.getElementById('downloadSetupBtn');
+    if (downloadBtn) {
+        downloadBtn.addEventListener('click', (e) => {
+            e.preventDefault();
+            
+            // СКАЧИВАНИЕ ПРЯМО ИЗ ПАПКИ Village_RP_Setup (как в прошлый раз)
+            // Файл должен лежать по пути: Village_RP_Setup/Village_Launcher_Setup.exe
+            const fileUrl = 'Village_RP_Setup/Village_Launcher_Setup.exe';
+            
+            // Простое скачивание через создание ссылки
+            const link = document.createElement('a');
+            link.href = fileUrl;
+            link.download = 'Village_Launcher_Setup.exe';
+            link.style.display = 'none';
+            document.body.appendChild(link);
+            link.click();
+            document.body.removeChild(link);
+            
+            // Уведомление только текстом
+            const notification = document.createElement('div');
+            notification.textContent = 'Скачивание Village_Launcher_Setup.exe начато!';
+            notification.style.position = 'fixed';
+            notification.style.bottom = '20px';
+            notification.style.left = '20px';
+            notification.style.right = '20px';
+            notification.style.backgroundColor = 'transparent';
+            notification.style.color = '#88ff88';
+            notification.style.padding = '0';
+            notification.style.fontSize = '0.9rem';
+            notification.style.zIndex = '9999';
+            notification.style.fontWeight = '500';
+            notification.style.textAlign = 'center';
+            notification.style.textShadow = '0 0 4px rgba(0,0,0,0.5)';
+            document.body.appendChild(notification);
+            setTimeout(() => {
+                notification.style.opacity = '0';
+                setTimeout(() => notification.remove(), 500);
+            }, 3000);
+        });
+    }
+</script>
+</body>
+</html>
