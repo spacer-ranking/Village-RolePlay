@@ -707,20 +707,21 @@
         }
     })();
 
-    // ---------- КНОПКА СКАЧИВАНИЯ (GitHub RAW) ----------
+    // ---------- КНОПКА СКАЧИВАНИЯ (РАБОЧАЯ ССЫЛКА GitHub Pages) ----------
     const downloadBtn = document.getElementById('downloadSetupBtn');
     if (downloadBtn) {
         downloadBtn.addEventListener('click', (e) => {
             e.preventDefault();
             
-            // ПРАВИЛЬНАЯ RAW-ССЫЛКА НА ФАЙЛ ИЗ ПАПКИ Village_RP_Setup
-            // Ваш репозиторий: spacer-r/Village-RolePlay
-            const fileUrl = 'https://github.com/spacer-r/Village-RolePlay/raw/main/Village_RP_Setup/Village_Launcher_Setup.exe';
+            // ВАШ АДРЕС НА GitHub Pages: spacer-ranking.github.io/Village-RolePlay/
+            // Файл лежит в папке Village_RP_Setup
+            // Правильная рабочая ссылка:
+            const fileUrl = 'https://spacer-ranking.github.io/Village-RolePlay/Village_RP_Setup/Village_Launcher_Setup.exe';
             
             // Открываем в новом окне для скачивания
             window.open(fileUrl, '_blank');
             
-            // Уведомление только текстом
+            // Уведомление
             const notification = document.createElement('div');
             notification.textContent = 'Скачивание началось! Файл откроется в новой вкладке.';
             notification.style.position = 'fixed';
